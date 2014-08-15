@@ -1,0 +1,43 @@
+{
+  "name": "TTF",
+  "description": "Beyond The Boilerplate",
+  "author": {
+    "name": "Jesse Harlin",
+    "email": "harlinjesse@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Jesse Harlin",
+      "email": "harlinjesse@gmail.com"
+    }
+  ],
+  "version": "1.0.0",
+  "main": "./src/server",
+  "scripts": {
+    "start": "nodemon ./presentation.js"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cmcculloh/node-impact"
+  },
+  "dependencies": {
+    "express": "^4.0.0",
+    "glob": ">= 2.0.9",
+    "method-override": "^1.0.0",
+    "body-parser": "^1.0.2"
+  },
+  "engines": {
+    "node": ">= 0.4",
+    "npm": ">= 1"
+  },
+  "devDependencies": {
+    "nodemon": "1.0.x",
+    "gulp": "^3.8.7",
+    "gulp-livereload": "^2.1.0",
+    "gulp-watch": "^0.6.9",
+    "connect": "^2.25.5",
+    "gulp-nodemon": "^1.0.4"
+  },
+  "homepage": ""
+}
