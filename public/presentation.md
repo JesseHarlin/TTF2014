@@ -14,14 +14,14 @@ controls: true
 
 --
 
-<img src="/images/no_bot.jpg" />
+<img src="images/no_bot.jpg" />
 Do Not.
 --
 ### Who am I?
 - Usergroup Leader 
 --
 
-<img src="/images/okcjs.jpg" />
+<img src="images/okcjs.jpg" />
 Real javascript: [okcjs.com](http://okcjs.com/)
 --
 
@@ -31,10 +31,10 @@ Real javascript: [okcjs.com](http://okcjs.com/)
 
 --
 
-<img src="/images/plug.jpg" />
+<img src="images/plug.jpg" />
 Insert Plug Here.
 --
-<img src="/images/thunderplains.jpg" />
+<img src="images/thunderplains.jpg" />
 [thunderplainsconf.com](http://thunderplainsconf.com/)
 --
 ### Who am I?
@@ -43,7 +43,7 @@ Insert Plug Here.
 - Organize Techlahoma
 --
 
-<img src="/images/techlahoma.jpg" />
+<img src="images/techlahoma.jpg" />
 
 [Techlahoma](http://techlahoma.org/)
 
@@ -56,7 +56,7 @@ Insert Plug Here.
 
 --
 
-<img src="/images/telogical.jpg" />
+<img src="images/telogical.jpg" />
 [telogicalsystems.com](http://www.telogicalsystems.com/)
 --
 ### Who am I?
@@ -85,12 +85,12 @@ Insert Plug Here.
 
 --
 
-<img src="/images/cool_story_bro_txt.jpg" />
+<img src="images/cool_story_bro_txt.jpg" />
 Real Desktop
 
 --
 
-<img src="/images/play_for_animals.jpg" />
+<img src="images/play_for_animals.jpg" />
 Once upon a time
 --
 
@@ -102,7 +102,7 @@ Once upon a time
 
 --
 
-<img src="/images/talkboy.jpg" />
+<img src="images/talkboy.jpg" />
 Hiii kids, I"m home eeeaarrly....
 
 --
@@ -116,11 +116,11 @@ Hiii kids, I"m home eeeaarrly....
 
 --
 
-<img src="/images/omg_tascam.jpg" />
+<img src="images/omg_tascam.jpg" />
 Let's Collab.
 
 --
-<img src="/images/tascam.jpg" />
+<img src="images/tascam.jpg" />
 
 --
 
@@ -134,18 +134,18 @@ Let's Collab.
 
 --
 
-<img src="/images/lascoux.jpg" />
+<img src="images/lascoux.jpg" />
 Lets write this down, it might be important later.
 --
 
-<img src="/images/thats_nice.jpg" />
+<img src="images/thats_nice.jpg" />
 Isn't this story cool?
 --
-<img src="/images/computer_90s.jpg" />
+<img src="images/computer_90s.jpg" />
 Finally. Yes.
 
 --
-<img src="/images/awesome_computer_kid.jpg" />
+<img src="images/awesome_computer_kid.jpg" />
 Me on computer, age 17.
 
 --
@@ -157,29 +157,29 @@ Me on computer, age 17.
 
 --
 
-<img src="/images/midi.jpg" />
+<img src="images/midi.jpg" />
 I had a cool friend.
 --
 
-<img src="/images/music_time.jpg" />
+<img src="images/music_time.jpg" />
 
 --
-<img src="/images/music_time_sn.jpg" />
+<img src="images/music_time_sn.jpg" />
 Notation + Tech... Some feedback loop achieved
 
 ..and that's not all...
 --
 ##It wasn't perfect.
 
-<img src="/images/lolmidi.jpg" />
+<img src="images/lolmidi.jpg" />
 ####...Have you heard microsoft wavtable synth?
 --
-<img src="/images/the_internet2.jpg" />
+<img src="images/the_internet2.jpg" />
 
 Friend: But Hey: We can share our work. And edit each others scores!
 
 --
-<img src="/images/the_internet.jpg" />
+<img src="images/the_internet.jpg" />
 My reaction at first.
 
 --
@@ -191,34 +191,34 @@ My reaction at first.
 5. Asynchronous Work Flow.
 
 --
-<img src="/images/thumbs_up_large.gif"  width="800px" style="width:800px"/>
+<img src="images/thumbs_up_large.gif"  width="800px" style="width:800px"/>
 Noice.
 
 --
-<img src="/images/real_engineer.jpg" />
+<img src="images/real_engineer.jpg" />
 But i knew there was something more. "Real tools"
 
 --
-<img src="/images/real_engineer_2.jpg" />
+<img src="images/real_engineer_2.jpg" />
 .. Real process. More knobs. Whizzzbang.
 
 --
-<img src="/images/fresh_beats_kid.jpg" />
+<img src="images/fresh_beats_kid.jpg" />
 
 --
-<img src="/images/my_studio_1.jpg" />
+<img src="images/my_studio_1.jpg" />
 I made this.
 --
 
-<img src="/images/my_studio_2.jpg" />
+<img src="images/my_studio_2.jpg" />
 That's a Hacked nintendo. Still use it.
 --
 
-<img src="/images/my_studio_3.jpg" />
+<img src="images/my_studio_3.jpg" />
 The Talkboy™ has come a long ways.
 --
 
-<img src="/images/mega_studio.jpg" />
+<img src="images/mega_studio.jpg" />
 Finally.
 --
 1. Great version control
@@ -231,19 +231,19 @@ Finally.
 8. Modern Technology stack.
 
 --
-<img src="/images/feel_good_goat.jpg" />
+<img src="images/feel_good_goat.jpg" />
 Feels... good.
 --
-<img src="/images/cool_story_1.jpg" />
+<img src="images/cool_story_1.jpg" />
 Isnt this a tech conference?
 --
-<img src="/images/bmays.jpg" />
+<img src="images/bmays.jpg" />
 But wait There's ..more?
 --
-<img src="/images/david-cope_1.jpg" />
+<img src="images/david-cope_1.jpg" />
 This is David Cope in his Room-o-Windchimes.
 --
-<img src="/images/david_cope_2.jpg" />
+<img src="images/david_cope_2.jpg" />
 Composer + Programmer.
 
 Fun fact: He likes making boardgames in his freetime.
@@ -257,7 +257,7 @@ Can capture 'tendancies' and probabilites of composition. Can be appropriated, a
 
 - The Algorithmic Composer (2000)
 --
-<img src="/images/I-confused.jpg" />
+<img src="images/I-confused.jpg" />
 This isn't just sampling and recording and messing around in Ableton...
 --
 
@@ -273,15 +273,15 @@ Created an AI, that is a sort of virtual composition partner. High level feedbac
 - Emily Howell
 --
 
-<img src="/images/the_Robot.jpg" />
+<img src="images/the_Robot.jpg" />
 Don't *be* the robot...
 --
 
-<img src="/images/I_heart_robut.jpg" />
+<img src="images/I_heart_robut.jpg" />
 *befriend* the robot
 --
 
-<img src="/images/cool_story_2_more_science.jpg" />
+<img src="images/cool_story_2_more_science.jpg" />
 Lets talk Tech then?
 --
 
@@ -374,7 +374,7 @@ ProTip: Not all the tools are tech.
 3. Scaffolding => Yeoman
 
 --
-<img src="/images/build_systems.jpg" />
+<img src="images/build_systems.jpg" />
 --
 
 ###1. Gulp 
@@ -394,7 +394,7 @@ ProTip: Not all the tools are tech.
 I wrote about getting started more in depth: 
 [http://simiansblog.com/simian-s-blog/flirting-with-gulp](http://simiansblog.com/simian-s-blog/flirting-with-gulp)
 --
-<img src="/images/browserify.jpg" />
+<img src="images/browserify.jpg" />
 --
 ### Browserify
 - Modules / [Rule of Modularity](http://en.wikipedia.org/wiki/Unix_philosophy)
@@ -407,10 +407,10 @@ I wrote about getting started more in depth:
 - browserify app.js -o bundle.js
 <iframe width="100%" height="300" src="http://jsfiddle.net/the_Simian/6L68d52e/2/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 --
-<img src="/images/yeoman.jpg" />
+<img src="images/yeoman.jpg" />
 --
 ### Yeoman
-<img src="/images/yeoman-logo.jpg" />
+<img src="images/yeoman-logo.jpg" />
 [Slides for yeoman talk here](http://jesseharlin.github.io/Yeoman-Talk)
 --
 ### Yeoman
@@ -426,7 +426,7 @@ I wrote about getting started more in depth:
 -answer questions. Make stuff.
 --
 ### There are more worlds than these.
-<img src="/images/other_tools.jpg" />
+<img src="images/other_tools.jpg" />
 --
 # Part IV: Client Side Devops in Javascript
 --
