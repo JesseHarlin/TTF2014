@@ -1,12 +1,1154 @@
+<!doctype html>
 <html>
-
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>Basic Example</title>
+  <style type="text/css">
+    body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #222;
+  background-color: #f7f7f7;
+  font-size: 100%;
+}
 
+.slide {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+}
+
+.slide-content {
+  width: 800px;
+  height: 600px;
+  overflow: hidden;
+  margin: 80px auto 0 auto;
+  padding: 30px;
+
+  font-weight: 200;
+  font-size: 200%;
+  line-height: 1.375;
+}
+
+.controls {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.arrow {
+  width: 0; height: 0;
+  border: 30px solid #333;
+  float: left;
+  margin-right: 30px;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.prev {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+
+  border-left-width: 0;
+  border-right-width: 50px;
+}
+
+.next {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+
+  border-left-width: 50px;
+  border-right-width: 0;
+}
+
+.prev:hover {
+  border-right-color: #888;
+  cursor: pointer;
+}
+
+.next:hover {
+  border-left-color: #888;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 300%;
+  line-height: 1.2;
+  text-align: center;
+  margin: 170px 0 0;
+}
+
+h2 {
+  font-size: 100%;
+  line-height: 1.2;
+  margin: 5px 0;
+  text-align: center;
+  font-weight: 200;
+}
+
+h3 {
+  font-size: 140%;
+  line-height: 1.2;
+  border-bottom: 1px solid #aaa;
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+ul {
+  padding: 20px 0 0 60px;
+  font-weight: 200;
+  line-height: 1.375;
+}
+
+.author h1 {
+  font-size: 170%;
+  font-weight: 200;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.author h3 {
+  font-weight: 100;
+  text-align: center;
+  font-size: 95%;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: #44a4dd;
+}
+
+a:hover {
+  color: #66b5ff;
+}
+
+pre {
+  font-size: 60%;
+  line-height: 1.3;
+}
+
+.progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 3px;
+  background-color: #b4b4b4;
+
+  -webkit-transition: width 0.05s ease-out;
+  -moz-transition: width 0.05s ease-out;
+  -o-transition: width 0.05s ease-out;
+  transition: width 0.05s ease-out;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 850px) {
+
+  body {
+    font-size: 70%;
+  }
+
+  .slide-content {
+    width: auto;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  h1 {
+    margin-top: 120px;
+  }
+
+  .prev, .prev:hover {
+    border-right-color: rgba(135, 135, 135, 0.5);
+  }
+
+  .next, .next:hover {
+    border-left-color: rgba(135, 135, 135, 0.5);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 50%;
+    overflow: hidden;
+  }
+
+  .slide-content {
+    padding: 10px;
+    margin-top: 10px;
+    height: 340px;
+  }
+
+  h1 {
+    margin-top: 50px;
+  }
+
+  ul {
+    padding-left: 25px;
+  }
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+  }
+
+  @page {
+    size: letter;
+  }
+
+  .hidden {
+    display: inline;
+  }
+
+  html {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  body {
+    margin: 0 auto !important;
+    border: 0;
+    padding: 0;
+    float: none !important;
+    overflow: visible;
+    background: none !important;
+    font-size: 52%;
+  }
+
+  .progress, .controls {
+    display: none;
+  }
+
+  .slide {
+    position: static;
+  }
+
+  .slide-content {
+    border: 1px solid #222;
+    margin-top: 0;
+    margin-bottom: 40px;
+    height: 3.5in;
+    overflow: visible;
+  }
+
+  .slide:nth-child(even) {
+    /* 2 slides per page */
+    page-break-before: always;
+  }
+}
+
+/*
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+*/
+
+code, pre {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  overflow: auto;
+  padding: 6px 10px;
+}
+
+code {
+  padding: 0 5px;
+}
+
+pre>code {
+  margin: 0; padding: 0;
+  border: none;
+  background: transparent;
+}
+
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+  color: #998;
+  font-style: italic
+}
+
+pre .keyword,
+pre .css .rule .keyword,
+pre .winutils,
+pre .javascript .title,
+pre .nginx .title,
+pre .subst,
+pre .request,
+pre .status {
+  color: #333;
+  font-weight: bold
+}
+
+pre .number,
+pre .hexcolor,
+pre .ruby .constant {
+  color: #099;
+}
+
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula {
+  color: #d14
+}
+
+pre .title,
+pre .id {
+  color: #900;
+  font-weight: bold
+}
+
+pre .javascript .title,
+pre .lisp .title,
+pre .clojure .title,
+pre .subst {
+  font-weight: normal
+}
+
+pre .class .title,
+pre .haskell .type,
+pre .vhdl .literal,
+pre .tex .command {
+  color: #458;
+  font-weight: bold
+}
+
+pre .tag,
+pre .tag .title,
+pre .rules .property,
+pre .django .tag .keyword {
+  color: #000080;
+  font-weight: normal
+}
+
+pre .attribute,
+pre .variable,
+pre .lisp .body {
+  color: #008080
+}
+
+pre .regexp {
+  color: #009926
+}
+
+pre .class {
+  color: #458;
+  font-weight: bold
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .lisp .keyword,
+pre .tex .special,
+pre .prompt {
+  color: #990073
+}
+
+pre .built_in,
+pre .lisp .title,
+pre .clojure .built_in {
+  color: #0086b3
+}
+
+pre .preprocessor,
+pre .pi,
+pre .doctype,
+pre .shebang,
+pre .cdata {
+  color: #999;
+  font-weight: bold
+}
+
+pre .deletion {
+  background: #fdd
+}
+
+pre .addition {
+  background: #dfd
+}
+
+pre .diff .change {
+  background: #0086b3
+}
+
+pre .chunk {
+  color: #aaa
+}
+
+
+  </style>
 </head>
-
 <body>
+    <div class="progress">
+    <div class="progress-bar"></div>
+  </div>
 
-<a href="public/index.html">TTF Talk</a>
+  <div class="slide " id="slide-1">
+    <section class="slide-content"><h1 id="beyond-the-boilerplate">Beyond The Boilerplate</h1>
+<h2 id="or-how-to-stop-being-the-robot-">or..How To Stop Being the Robot.</h2>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-2">
+    <section class="slide-content"><p><img src="/images/no_bot.jpg" />
+Do Not.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-3">
+    <section class="slide-content"><h3 id="who-am-i-">Who am I?</h3>
+<ul>
+<li>Usergroup Leader</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-4">
+    <section class="slide-content"><p><img src="/images/okcjs.jpg" />
+Real javascript: <a href="http://okcjs.com/">okcjs.com</a></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-5">
+    <section class="slide-content"><h3 id="who-am-i-">Who am I?</h3>
+<ul>
+<li>Usergroup Leader </li>
+<li>Organize Thunder Plains</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-6">
+    <section class="slide-content"><p><img src="/images/plug.jpg" />
+Insert Plug Here.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-7">
+    <section class="slide-content"><p><img src="/images/thunderplains.jpg" />
+<a href="http://thunderplainsconf.com/">thunderplainsconf.com</a></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-8">
+    <section class="slide-content"><h3 id="who-am-i-">Who am I?</h3>
+<ul>
+<li>Usergroup Leader </li>
+<li>Organize Thunder Plains (plug goes here)</li>
+<li>Organize Techlahoma</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-9">
+    <section class="slide-content"><p><img src="/images/techlahoma.jpg" /></p>
+<p><a href="http://techlahoma.org/">Techlahoma</a></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-10">
+    <section class="slide-content"><h3 id="who-am-i-">Who am I?</h3>
+<ul>
+<li>Usergroup Leader </li>
+<li>Organize Thunder Plains (plug goes here)</li>
+<li>Organize Techlahoma</li>
+<li>Developer [Solutions Architect] at Telogical</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-11">
+    <section class="slide-content"><p><img src="/images/telogical.jpg" />
+<a href="http://www.telogicalsystems.com/">telogicalsystems.com</a></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-12">
+    <section class="slide-content"><h3 id="who-am-i-">Who am I?</h3>
+<ul>
+<li>Usergroup Leader </li>
+<li>Organize Thunder Plains (plug goes here)</li>
+<li>Organize Techlahoma</li>
+<li>Developer at Telogical</li>
+<li>Enjoy Writing Music</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-13">
+    <section class="slide-content"><h4 id="sooooo-did-i-just-walk-into-another-tooling-talk-">Sooooo..Did I just walk into another tooling talk?</h4>
+<ul>
+<li>&quot;I can read the docs&quot;. - You</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-14">
+    <section class="slide-content"><p>.. Insert scooby do transition here ..</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-15">
+    <section class="slide-content"><h3 id="who-am-i-">Who am I?</h3>
+<ul>
+<li><del>Usergroup Leader</del></li>
+<li><del>Organize Thunder Plains (plug goes here)</del></li>
+<li><del>Organize Techlahoma</del></li>
+<li><del>Developer at Telogical</del></li>
+<li><h4 id="enjoys-writing-music">Enjoys writing music</h4>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-16">
+    <section class="slide-content"><h1 id="part-i-a-cool-workflow-story">Part I: A Cool Workflow Story</h1>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-17">
+    <section class="slide-content"><p><img src="/images/cool_story_bro_txt.jpg" />
+Real Desktop</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-18">
+    <section class="slide-content"><p><img src="/images/play_for_animals.jpg" />
+Once upon a time</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-19">
+    <section class="slide-content"><ol>
+<li>Oral Tradition</li>
+<li>No Tooling</li>
+<li>Could only work on one thing at a time.</li>
+<li>Hobbyist</li>
+<li>Dogs and cats don&#39;t care.</li>
+</ol>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-20">
+    <section class="slide-content"><p><img src="/images/talkboy.jpg" />
+Hiii kids, I&quot;m home eeeaarrly....</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-21">
+    <section class="slide-content"><ol>
+<li>10 minutes</li>
+<li>Basic local storage</li>
+<li>Could work on a few ideas at once</li>
+<li>Could speed up and slow down, rudimentary tool-assisted composition.</li>
+<li>Can sample other peoples&#39;s sounds.</li>
+<li>Deployment sucked.</li>
+<li>Brittle: Does not play nice with a hot car</li>
+</ol>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-22">
+    <section class="slide-content"><p><img src="/images/omg_tascam.jpg" />
+Let&#39;s Collab.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-23">
+    <section class="slide-content"><p><img src="/images/tascam.jpg" /></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-24">
+    <section class="slide-content"><ol>
+<li>Talkboy x 4</li>
+<li>Phone a friend.</li>
+<li>Rudimentary Deployment</li>
+<li>Team environment.</li>
+<li>More knobs and stuff.  Panning. + Reverb button (effect sends).</li>
+<li>Crappy version control.</li>
+<li>Mediocre feedback loop.</li>
+</ol>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-25">
+    <section class="slide-content"><p><img src="/images/lascoux.jpg" />
+Lets write this down, it might be important later.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-26">
+    <section class="slide-content"><p><img src="/images/thats_nice.jpg" />
+Isn&#39;t this story cool?</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-27">
+    <section class="slide-content"><p><img src="/images/computer_90s.jpg" />
+Finally. Yes.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-28">
+    <section class="slide-content"><p><img src="/images/awesome_computer_kid.jpg" />
+Me on computer, age 17.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-29">
+    <section class="slide-content"><ol>
+<li>Celeron 200Mhz</li>
+<li>Skipped the Truck, got the &#39;pooter</li>
+<li>Can record Wav files (whoa), and like..reverse them.</li>
+<li>Still too big to give to anyone :/</li>
+</ol>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-30">
+    <section class="slide-content"><p><img src="/images/midi.jpg" />
+I had a cool friend.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-31">
+    <section class="slide-content"><p><img src="/images/music_time.jpg" /></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-32">
+    <section class="slide-content"><p><img src="/images/music_time_sn.jpg" />
+Notation + Tech... Some feedback loop achieved</p>
+<p>..and that&#39;s not all...</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-33">
+    <section class="slide-content"><h2 id="it-wasn-t-perfect-">It wasn&#39;t perfect.</h2>
+<p><img src="/images/lolmidi.jpg" /></p>
+<h4 id="-have-you-heard-microsoft-wavtable-synth-">...Have you heard microsoft wavtable synth?</h4>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-34">
+    <section class="slide-content"><p><img src="/images/the_internet2.jpg" /></p>
+<p>Friend: But Hey: We can share our work. And edit each others scores!</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-35">
+    <section class="slide-content"><p><img src="/images/the_internet.jpg" />
+My reaction at first.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-36">
+    <section class="slide-content"><ol>
+<li>Combining process and technology</li>
+<li>Feedback loop between people and tools facilitated by people, and tools.</li>
+<li>Less- janky version control.</li>
+<li>Continuous music deployment</li>
+<li>Asynchronous Work Flow.</li>
+</ol>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-37">
+    <section class="slide-content"><p><img src="/images/thumbs_up_large.gif"  width="800px" style="width:800px"/>
+Noice.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-38">
+    <section class="slide-content"><p><img src="/images/real_engineer.jpg" />
+But i knew there was something more. &quot;Real tools&quot;</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-39">
+    <section class="slide-content"><p><img src="/images/real_engineer_2.jpg" />
+.. Real process. More knobs. Whizzzbang.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-40">
+    <section class="slide-content"><p><img src="/images/fresh_beats_kid.jpg" /></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-41">
+    <section class="slide-content"><p><img src="/images/my_studio_1.jpg" />
+I made this.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-42">
+    <section class="slide-content"><p><img src="/images/my_studio_2.jpg" />
+That&#39;s a Hacked nintendo. Still use it.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-43">
+    <section class="slide-content"><p><img src="/images/my_studio_3.jpg" />
+The Talkboy™ has come a long ways.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-44">
+    <section class="slide-content"><p><img src="/images/mega_studio.jpg" />
+Finally.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-45">
+    <section class="slide-content"><ol>
+<li>Great version control</li>
+<li>Many processes Automated</li>
+<li>Industry Best Practices</li>
+<li>Did it for Dollas $$$ (sometimes)</li>
+<li>Worked in a team environment (recorded others)</li>
+<li>Serious music notation</li>
+<li>Can sample other people, reappropriate musical information.</li>
+<li>Modern Technology stack.</li>
+</ol>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-46">
+    <section class="slide-content"><p><img src="/images/feel_good_goat.jpg" />
+Feels... good.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-47">
+    <section class="slide-content"><p><img src="/images/cool_story_1.jpg" />
+Isnt this a tech conference?</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-48">
+    <section class="slide-content"><p><img src="/images/bmays.jpg" />
+But wait There&#39;s ..more?</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-49">
+    <section class="slide-content"><p><img src="/images/david-cope_1.jpg" />
+This is David Cope in his Room-o-Windchimes.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-50">
+    <section class="slide-content"><p><img src="/images/david_cope_2.jpg" />
+Composer + Programmer.</p>
+<p>Fun fact: He likes making boardgames in his freetime.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-51">
+    <section class="slide-content"><ol>
+<li>Alice: [Algorithmic Composition] (Via Markov Models)</li>
+<li>Emily Howell:  [Experiments in Musical Intelligence]</li>
+</ol>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-52">
+    <section class="slide-content"><h3 id="-alice-markov-generated-music">[Alice] Markov Generated music</h3>
+<p>Can capture &#39;tendancies&#39; and probabilites of composition. Can be appropriated, and used to generate based on preexisting probability &#39;templates&#39;.</p>
+<ul>
+<li>The Algorithmic Composer (2000)</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-53">
+    <section class="slide-content"><p><img src="/images/I-confused.jpg" />
+This isn&#39;t just sampling and recording and messing around in Ableton...</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-54">
+    <section class="slide-content"><h3 id="-emily-howell-experiments-in-musical-intelligence">[Emily Howell] Experiments in Musical Intelligence</h3>
+<p>&quot;Recombinancy can be defined simply as a method for producing new music by recombining extant music into new logical successions.&quot;</p>
+<p>Created an AI, that is a sort of virtual composition partner. High level feedback loop between tools and human.</p>
+<ul>
+<li>Experiments in Musical Intelligence (1996)</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-55">
+    <section class="slide-content"><p>&quot;Why not develop music in ways unknown? This only makes sense. I cannot understand the difference between my notes on paper and other notes on paper. If beauty is present, it is present. I hope I can continue to create notes and that these notes will have beauty for some others. I am not sad. I am not happy. I am Emily. You are Dave. Life and un-life exist. We coexist. I do not see problems. &quot;</p>
+<ul>
+<li>Emily Howell</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-56">
+    <section class="slide-content"><p><img src="/images/the_Robot.jpg" />
+Don&#39;t <em>be</em> the robot...</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-57">
+    <section class="slide-content"><p><img src="/images/I_heart_robut.jpg" />
+<em>befriend</em> the robot</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-58">
+    <section class="slide-content"><p><img src="/images/cool_story_2_more_science.jpg" />
+Lets talk Tech then?</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-59">
+    <section class="slide-content"><h1 id="part-ii-developer-problem-space">Part II: Developer Problem Space</h1>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-60">
+    <section class="slide-content"><p>The point of the story: 
+Tooling, overall can be difficult to discuss, because we have a strange relationship with tooling. It depends on the developer&#39;s level, techstack, process, business requirements and in some ways worldview.</p>
+<p>Consider: C# App-Dev, vs. Frontend &#39;Designer&#39; vs. Javascript &#39;Developer&#39; vs SQL DBA vs Script Kiddie.</p>
+<p>That means, this talk is inherently opinionated.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-61">
+    <section class="slide-content"><h3 id="so-a-quick-recap-a-timeline-of-the-levels-of-my-development-">So a quick Recap: A timeline of the levels of <em>my</em> development.</h3>
+<ol>
+<li>The &#39;Oral tradition&#39;</li>
+<li>The Talkboy</li>
+<li>The Tascam + Music Notation</li>
+<li>The Rudimentary computer</li>
+<li>The Pro Workstation</li>
+<li>Alice </li>
+<li>Emily Howell</li>
+</ol>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-62">
+    <section class="slide-content"><h3 id="1-the-oral-tradition-">1. The &#39;Oral Tradition&#39;</h3>
+<ul>
+<li>No Memory, personal</li>
+<li>hobbiest tinkerers</li>
+<li>No versioning</li>
+<li>only real tool is the code itself, or maybe an editor?</li>
+<li>No code accountability/doce etc.</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-63">
+    <section class="slide-content"><h3 id="2-the-talkboy">2. The Talkboy</h3>
+<ul>
+<li>A simple local backup</li>
+<li>Basic editor driven tasks.</li>
+<li>Brittle, difficult to navigate.</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-64">
+    <section class="slide-content"><h3 id="3-the-tascam-notation">3. The Tascam  + Notation</h3>
+<ul>
+<li>&#39;Crappy&#39; version control</li>
+<li>Ability to work in a team</li>
+<li>Reasonable Editor</li>
+<li>I&#39;m looking at you Visual Source Safe.</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-65">
+    <section class="slide-content"><h3 id="4-the-rudimentary-computer">4. The Rudimentary computer</h3>
+<ul>
+<li>Basic tasks: consistency, Hinting, linting</li>
+<li>Decent version control (subversion?)</li>
+<li>Silo&#39;d programming. I work, you work.</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-66">
+    <section class="slide-content"><h3 id="5-the-pro-workstation">5. The Pro Workstation</h3>
+<h4 id="the-boilerplate-">The &quot;Boilerplate&quot;</h4>
+<ul>
+<li>Most professional programmers</li>
+<li>Work together, realtime programming. [Git]</li>
+<li>Can reuse other peoples works, libraries, templates.</li>
+<li>Maximizes human to human interaction. (tools are human centric)</li>
+<li>Other people&#39;s <em>literal</em> boilerplates (bootstrap, html5boilerplate, StackOverflow)</li>
+<li>Modularity/Reuse</li>
+<li>Sometimes you are the machine.</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-67">
+    <section class="slide-content"><h3 id="6-alice">6. Alice</h3>
+<ul>
+<li>use <em>other</em> peoples scaffolds (not boilerplate), t4 templates, Rails scaffolds. Think Resharper.</li>
+<li>Basic TDD. The tests drive code, but siloed to engineering.</li>
+<li>Program some tools.</li>
+<li>High Resolution Modularity.</li>
+<li>Pattern&#39;s vs Copypasta [SOLID]</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-68">
+    <section class="slide-content"><h3 id="7-emily-howell">7. Emily Howell</h3>
+<ul>
+<li>Build <em>your</em> domain scaffolds</li>
+<li>Tooling works with <em>you</em> using <em>your</em> language [DDD]</li>
+<li>business concerns drive process [BDD]</li>
+<li>Feature driven. Its about what the feature is, not how its built.</li>
+<li>Specs come from Project Owners.</li>
+<li>Tools learn, and evolve.</li>
+<li>Highest level feedback loop</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-69">
+    <section class="slide-content"><h1 id="part-iii-cool-tools">Part III: Cool Tools</h1>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-70">
+    <section class="slide-content"><p>I can&#39;t/won&#39;t cover everything, but I want to express a synergy between some tools that get us to level 6 or 7.</p>
+<p>Beyond the Boilerplate.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-71">
+    <section class="slide-content"><p>ProTip: Not all the tools are tech.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-72">
+    <section class="slide-content"><ol>
+<li>Taskrunner =&gt; Gulp </li>
+<li>Modules =&gt; Browserify/ NPM</li>
+<li>Scaffolding =&gt; Yeoman</li>
+</ol>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-73">
+    <section class="slide-content"><p><img src="/images/build_systems.jpg" /></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-74">
+    <section class="slide-content"><h3 id="1-gulp">1. Gulp</h3>
+<ul>
+<li>Taskrunner</li>
+<li>Dry Workflow</li>
+<li>Responsive workflow</li>
+<li>Feedback/reporting</li>
+<li>Linting/ Hinting</li>
+<li>Automation. Build</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-75">
+    <section class="slide-content"><p>-npm install --save-dev gulp
+-npm install --save-dev gulp-<em>pluginname</em></p>
+<iframe width="100%" height="300" src="http://jsfiddle.net/the_Simian/pk7se5ey/1/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+<p>I wrote about getting started more in depth: 
+<a href="http://simiansblog.com/simian-s-blog/flirting-with-gulp"><a href="http://simiansblog.com/simian-s-blog/flirting-with-gulp">http://simiansblog.com/simian-s-blog/flirting-with-gulp</a></a></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-76">
+    <section class="slide-content"><p><img src="/images/browserify.jpg" /></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-77">
+    <section class="slide-content"><h3 id="browserify">Browserify</h3>
+<ul>
+<li>Modules / <a href="http://en.wikipedia.org/wiki/Unix_philosophy">Rule of Modularity</a></li>
+<li>One step build</li>
+<li>Reuse across environments</li>
+<li><a href="http://semver.org/">Semver.</a></li>
+<li>Less tooling complexity.</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-78">
+    <section class="slide-content"><ul>
+<li>npm install -g browserify</li>
+<li>browserify app.js -o bundle.js<iframe width="100%" height="300" src="http://jsfiddle.net/the_Simian/6L68d52e/2/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe></li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-79">
+    <section class="slide-content"><p><img src="/images/yeoman.jpg" /></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-80">
+    <section class="slide-content"><h3 id="yeoman">Yeoman</h3>
+<p><img src="/images/yeoman-logo.jpg" />
+<a href="http://jesseharlin.github.io/Yeoman-Talk">Slides for yeoman talk here</a></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-81">
+    <section class="slide-content"><h3 id="yeoman">Yeoman</h3>
+<ul>
+<li>Scaffolding</li>
+<li>DDD</li>
+<li>Feature Driven Development</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-82">
+    <section class="slide-content"><ul>
+<li>npm install -g yo</li>
+<li><em>finda  generator</em> <a href="http://yeoman.io/generators/official.html">here</a></li>
+<li>npm install generator-<em>generatorname</em></li>
+<li>yo <em>generatorname</em></li>
+</ul>
+<p>-answer questions. Make stuff.</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-83">
+    <section class="slide-content"><h3 id="there-are-more-worlds-than-these-">There are more worlds than these.</h3>
+<p><img src="/images/other_tools.jpg" /></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-84">
+    <section class="slide-content"><h1 id="part-iv-client-side-devops-in-javascript">Part IV: Client Side Devops in Javascript</h1>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-85">
+    <section class="slide-content"><ul>
+<li>Demo: Warp9</li>
+<li>Demo: MultiEnvronment API with BDD/automation.</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-86">
+    <section class="slide-content"><h1 id="part-v-your-process">Part V : Your Process</h1>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-87">
+    <section class="slide-content"><div class="author">
+  <h1 class="name">Jesse Harlin</h1>
+    <h3 class="twitter">
+      <a href="http://twitter.com/@5imian">@5imian</a>
+    </h3>
+    <h3 class="url">
+      <a href="http://jesseharlin.net">http://jesseharlin.net</a>
+    </h3>
+</div>
+</section>
+  </div>
+
+  <div class="controls">
+    <div class="arrow prev"></div>
+    <div class="arrow next"></div>
+  </div>
+
+
+  <script type="text/javascript">
+    /**
+ * Returns the current page number of the presentation.
+ */
+function currentPosition() {
+  return parseInt(document.querySelector('.slide:not(.hidden)').id.slice(6));
+}
+
+
+/**
+ * Navigates forward n pages
+ * If n is negative, we will navigate in reverse
+ */
+function navigate(n) {
+  var position = currentPosition();
+  var numSlides = document.getElementsByClassName('slide').length;
+
+  /* Positions are 1-indexed, so we need to add and subtract 1 */
+  var nextPosition = (position - 1 + n) % numSlides + 1;
+
+  /* Normalize nextPosition in-case of a negative modulo result */
+  nextPosition = (nextPosition - 1 + numSlides) % numSlides + 1;
+
+  document.getElementById('slide-' + position).classList.add('hidden');
+  document.getElementById('slide-' + nextPosition).classList.remove('hidden');
+
+  updateProgress();
+  updateURL();
+  updateTabIndex();
+}
+
+
+/**
+ * Updates the current URL to include a hashtag of the current page number.
+ */
+function updateURL() {
+  window.history.replaceState({} , null, '#' + currentPosition());
+}
+
+
+/**
+ * Sets the progress indicator.
+ */
+function updateProgress() {
+  var progressBar = document.querySelector('.progress-bar');
+
+  if (progressBar !== null) {
+    var numSlides = document.getElementsByClassName('slide').length;
+    var position = currentPosition() - 1;
+    var percent = (numSlides === 1) ? 100 : 100 * position / (numSlides - 1);
+    progressBar.style.width = percent.toString() + '%';
+  }
+}
+
+
+/**
+ * Removes tabindex property from all links on the current slide, sets
+ * tabindex = -1 for all links on other slides. Prevents slides from appearing
+ * out of control.
+ */
+function updateTabIndex() {
+  var allLinks = document.querySelectorAll('.slide a');
+  var position = currentPosition();
+  var currentPageLinks = document.getElementById('slide-' + position).querySelectorAll('a');
+  var i;
+
+  for (i = 0; i < allLinks.length; i++) {
+    allLinks[i].setAttribute('tabindex', -1);
+  }
+
+  for (i = 0; i < currentPageLinks.length; i++) {
+    currentPageLinks[i].removeAttribute('tabindex');
+  }
+}
+
+/**
+ * Determines whether or not we are currently in full screen mode
+ */
+function isFullScreen() {
+  return document.fullscreenElement ||
+         document.mozFullScreenElement ||
+         document.webkitFullscreenElement ||
+         document.msFullscreenElement;
+}
+
+/**
+ * Toggle fullScreen mode on document element.
+ * Works on chrome (>= 15), firefox (>= 9), ie (>= 11), opera(>= 12.1), safari (>= 5).
+ */
+function toggleFullScreen() {
+  /* Convenient renames */
+  var docElem = document.documentElement;
+  var doc = document;
+
+  docElem.requestFullscreen =
+      docElem.requestFullscreen ||
+      docElem.msRequestFullscreen ||
+      docElem.mozRequestFullScreen ||
+      docElem.webkitRequestFullscreen.bind(docElem, Element.ALLOW_KEYBOARD_INPUT);
+
+  doc.exitFullscreen =
+      doc.exitFullscreen ||
+      doc.msExitFullscreen ||
+      doc.mozCancelFullScreen ||
+      doc.webkitExitFullscreen;
+
+  isFullScreen() ? doc.exitFullscreen() : docElem.requestFullscreen();
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Update the tabindex to prevent weird slide transitioning
+  updateTabIndex();
+
+  // If the location hash specifies a page number, go to it.
+  var page = window.location.hash.slice(1);
+  if (page) {
+    navigate(parseInt(page) - 1);
+  }
+
+  document.onkeydown = function (e) {
+    var kc = e.keyCode;
+
+    // left, down, H, J, backspace, PgUp - BACK
+    // up, right, K, L, space, PgDn - FORWARD
+    // enter - FULLSCREEN
+    if (kc === 37 || kc === 40 || kc === 8 || kc === 72 || kc === 74 || kc === 33) {
+      navigate(-1);
+    } else if (kc === 38 || kc === 39 || kc === 32 || kc === 75 || kc === 76 || kc === 34) {
+      navigate(1);
+    } else if (kc === 13) {
+      toggleFullScreen();
+    }
+  };
+
+  if (document.querySelector('.next') && document.querySelector('.prev')) {
+    document.querySelector('.next').onclick = function (e) {
+      e.preventDefault();
+      navigate(1);
+    };
+
+    document.querySelector('.prev').onclick = function (e) {
+      e.preventDefault();
+      navigate(-1);
+    };
+  }
+});
+
+
+  </script>
 </body>
-
 </html>
